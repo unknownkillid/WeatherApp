@@ -1,38 +1,99 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+:root {
+  --fonts: 'Josefin Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonts);
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./assets/weather.jpg);
+  background: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.deg {
+  margin-top: 10px;
+}
+
+.app-div {
+  width: 500px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.693);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.top {
+  width: 300px;
+  height: 10rem;
+  background-color: rgba(128, 128, 128, 0.427);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-radius: 20px;
+}
+
+.city p {
+  font-weight: 700;
+  font-size: x-large;
+  color: rgb(172, 172, 172);
+}
+
+.bottom {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(128, 128, 128, 0.576);
+  padding: 0 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.feels {
+  transform: rotateZ(-90deg) translateY(20px);
+  font-size: x-large;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bottom p{
+  margin: 15px 0;
+  font-size: large;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.input {
+  width: 300px;
+  height: 50px;
+  outline: none;
   color: white;
+  padding: 0 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+  border: 2px solid white;
+  background: none;
+  border-radius: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
+::placeholder {
+  color: white;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
