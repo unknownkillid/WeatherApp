@@ -2,14 +2,19 @@ import './App.css';
 import axios from 'axios';
 import React, { useState } from 'react';
 
+
+
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=35ae895d267158f68d7f412a8879fe4a`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=35ae895d267158f68d7f412a8879fe4a`;
 
+  
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
+      inputAndAnimations();
+
       axios.get(url)
         .then((response) => {
           setData(response.data);
@@ -21,12 +26,15 @@ function App() {
     }
   };
 
+
+
   return (
     <div className="App">
       <div className="container">
         <div className="app-div">
           <div className="search">
             <input
+              id='input'
               className='input'
               type="text"
               value={location}
@@ -36,15 +44,15 @@ function App() {
             />
           </div>
           <div className="top">
-            <div className="column-titles">
+            <div className="column-titles" id='some'>
               <div className="city">
                 <p>{data.name}</p>
               </div>
               <div className="deg">
-                {data.main ? <h1>{data.main.temp} °C</h1> : null}
+                {data.main ? <h1 id='cContent'>{data.main.temp} °C</h1> : null}
               </div>
             </div>
-            <div className="feels">
+            <div className="feels" id='cloud'>
               {data.main ? <p>{data.weather[0].main}</p> : null}
             </div>
           </div>
@@ -66,6 +74,21 @@ function App() {
       </div>
     </div>
   );
+}
+
+
+function inputAndAnimations() {
+  const clouds = document.getElementById('cloud')
+  const colums = document.getElementById('some')
+  const input = document.getElementById('input')
+  if (input.value === '') {
+    colums.classList.remove('animate')
+    clouds.classList.remove('opac')
+  } else {
+    colums.classList.add('animate')
+    clouds.classList.add('opac')
+  }
+  requestAnimationFrame(inputAndAnimations)
 }
 
 export default App;

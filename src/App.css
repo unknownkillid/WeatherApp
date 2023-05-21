@@ -19,7 +19,7 @@
   width: 100%;
   height: 100vh;
   background-image: url(./assets/weather.jpg);
-  background: cover;
+  background: cover no-repeat center;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -37,6 +37,7 @@
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  border-radius: 20px;
 }
 
 .top {
@@ -49,6 +50,7 @@
   justify-content: space-between;
   padding: 0 20px;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .city p {
@@ -96,4 +98,41 @@
 ::placeholder {
   color: white;
 
+}
+
+.column-titles {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.feels {
+  opacity: 0;
+}
+
+.animate {
+  animation: animate 1s forwards;
+}
+
+.opac {
+  opacity: 1;
+  animation: opac 3s forwards;
+}
+
+@keyframes animate {
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes opac {
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 516px) {
+  .app-div {
+    zoom: 60%;
+  }
 }
